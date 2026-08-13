@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeBuddy AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+  <div class="titlebar">
+    <div class="titlebar-left">
+      <div class="dots">
+        <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+      </div>
+      <div class="brand">
+        <div class="brand-mark">🧠</div>
+        <div class="brand-name">Code<span class="accent">Buddy</span> AI</div>
+      </div>
+    </div>
+    <div class="titlebar-right">session · practice-mode</div>
+  </div>
+
+  <div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <div>
+        <p class="eyebrow">Current problem</p>
+        <div class="problem-card">
+          <div class="problem-index">#0001</div>
+          <div class="problem-title" id="problemTitle">Loading...</div>
+          <div class="tag-row">
+            <span class="tag diff-easy">Easy</span>
+            <span class="tag">Array</span>
+            <span class="tag">Hash Map</span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="eyebrow">Thinking score</p>
+        <div class="score-card">
+          <div class="score-head">
+            <div class="score-value" id="scoreValue">64<span>/100</span></div>
+          </div>
+          <div class="pulse-wrap">
+            <svg viewBox="0 0 300 54" preserveAspectRatio="none">
+              <line x1="0" y1="27" x2="300" y2="27" class="pulse-grid-line"></line>
+              <polyline id="pulseLine" class="pulse-line" points=""></polyline>
+            </svg>
+          </div>
+          <div class="score-caption">reasoning steps · self-corrections · time-to-insight</div>
+        </div>
+      </div>
+
+      <button class="save-btn" id="saveBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+        <span id="saveLabel">BookMark</span>
+      </button>
+      <button id="viewBookmarksBtn" class="save-btn">
+    📚 View Bookmarks
+</button>
+
+<div id="bookmarkList" style="display:none;"></div>
+
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+
+      <div class="stuck-box">
+        <div class="stuck-label">What are you stuck on?</div>
+        <textarea class="stuck-input" id="stuckInput" placeholder="e.g. I keep using nested loops and hitting O(n²) — not sure how to get to O(n)..."></textarea>
+      </div>
+    
+
+      <div class="action-row">
+        <button class="btn btn-primary" id="hintBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"></path><path d="M10 22h4"></path><path d="M12 2a7 7 0 0 0-4 12.75V17h8v-2.25A7 7 0 0 0 12 2z"></path></svg>
+          Get Hint
+        </button>
+        <button class="btn btn-secondary" id="explainBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+          Explain Concept
+        </button>
+      </div>
+
+      <div class="response-section">
+        <div class="response-head">
+          <div class="response-head-left">
+            <div class="response-dot"></div>
+            <div class="response-title">AI Response</div>
+          </div>
+          <div class="response-badge" id="responseBadge">idle</div>
+        </div>
+        <div class="response-body empty" id="responseBody">
+          Ask a question above, then choose Get Hint or Explain Concept.<br>Nothing sent yet.
+        </div>
+      </div>
+
+    </main>
+
+  </div>
+</div>
+
+<script src="popup.js"></script>
+</body>
+</html>
